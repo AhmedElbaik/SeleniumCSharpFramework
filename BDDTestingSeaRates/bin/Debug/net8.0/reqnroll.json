@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.reqnroll.net/reqnroll-config-latest.json",
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning"
+    }
+  },
+  "specflow": {
+    "bindingCulture": {
+      "language": "en-us"
+    },
+    "language": {
+      "feature": "en-us"
+    },
+    "stepAssemblies": [
+      { "assembly": "BDDTestingSeaRates/StepDefinitions" }
+    ],
+    "unitTestProvider": {
+      "name": "xUnit"
+    }
+  }
+}

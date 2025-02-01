@@ -1,0 +1,81 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<EnableXunitDependencyInjectionDefaultTestFrameworkAttribute>false</EnableXunitDependencyInjectionDefaultTestFrameworkAttribute>
+		<!-- Add Reqnroll specific properties -->
+		<ReqnrollGeneratorVersion>2.2.1</ReqnrollGeneratorVersion>
+		<GenerateFeatureFileCodeBehindSetting>true</GenerateFeatureFileCodeBehindSetting>
+	</PropertyGroup>
+
+
+	<!-- Reqnroll feature file configuration -->
+	<ItemGroup>
+		<None Update="**\*.feature">
+			<Visible>true</Visible>
+			<Generator>ReqnrollGenerator</Generator>
+		</None>
+	</ItemGroup>
+
+	<!-- Main package references -->
+	<ItemGroup>
+		<!-- Reqnroll related packages -->
+		<PackageReference Include="Reqnroll" Version="2.2.1" />
+		<PackageReference Include="Reqnroll.CustomPlugin" Version="2.2.1" />
+		<PackageReference Include="Reqnroll.Autofac" Version="2.2.1" />
+		<PackageReference Include="Reqnroll.SpecFlowCompatibility" Version="2.2.1" />
+		<PackageReference Include="Reqnroll.Tools.MsBuild.Generation" Version="2.2.1" />
+		<PackageReference Include="Reqnroll.xUnit" Version="2.2.1" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.3.1" />
+		<PackageReference Include="xRetry.Reqnroll" Version="1.0.0" />
+
+		<!-- Testing frameworks -->
+		<PackageReference Include="xunit" Version="2.9.3" />
+		<PackageReference Include="xunit.runner.visualstudio" Version="3.0.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+
+		<!-- Assertion and test utilities -->
+		<PackageReference Include="FluentAssertions" Version="8.0.1" />
+		<PackageReference Include="FluentAssertions.Extensions" Version="1.0.18" />
+		<PackageReference Include="AutoFixture" Version="4.18.1" />
+		<PackageReference Include="BoDi" Version="1.5.0" />
+
+		<!-- Selenium related -->
+		<PackageReference Include="Selenium.WebDriver" Version="4.28.0" />
+		<PackageReference Include="Selenium.Support" Version="4.28.0" />
+		<PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
+
+		<!-- Additional utilities -->
+		<PackageReference Include="System.CodeDom" Version="9.0.1" />
+		<PackageReference Include="ExtentReports" Version="5.0.4" />
+		<PackageReference Include="TestRail" Version="3.2.1" />
+		<PackageReference Include="TextCopy" Version="6.2.1" />
+	</ItemGroup>
+
+	<!-- Project structure -->
+	<ItemGroup>
+		<Folder Include="Drivers\" />
+		<Folder Include="Models\" />
+		<Folder Include="resources\" />
+		<Folder Include="Support\" />
+	</ItemGroup>
+
+	<!-- Project references -->
+	<ItemGroup>
+		<ProjectReference Include="..\TestingInCSharpFramework\TestingInCSharpFramework.csproj" />
+	</ItemGroup>
+
+	<!-- Resource files -->
+	<ItemGroup>
+		<None Update="appsettings.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="resources\testfiles\**\*.xlsx">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+</Project>
